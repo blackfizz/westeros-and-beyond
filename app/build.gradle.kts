@@ -54,6 +54,13 @@ android {
 
 dependencies {
 
+//    implementation(project(Modules.model))
+//    implementation(project(Modules.domain))
+//    implementation(project(Modules.repository))
+//    implementation(project(Modules.remote))
+//    implementation(project(Modules.local))
+//    implementation(project(Modules.presentation))
+
     implementation(Dependencies.daggerAndroid)
     kapt(Dependencies.daggerCompiler)
 

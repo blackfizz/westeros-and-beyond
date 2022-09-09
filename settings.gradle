@@ -14,3 +14,11 @@ dependencyResolutionManagement {
 }
 rootProject.name = "WesterosAndBeyond"
 include ':app'
+include ':data'
+include ':data:remote'
+include ':data:local'
+include ':data:model'
+include ':data:repository'
+include ':domain'
+include ':presentation'
+include ':core'

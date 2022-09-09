@@ -1,6 +1,6 @@
 object Dependencies {
     const val daggerAndroid = "com.google.dagger:hilt-android:${Versions.dagger}"
-    const val daggerCompiler = "com.google.dagger:hilt-compiler:${Versions.dagger}"
+    const val daggerCompiler = "com.google.dagger:hilt-android-compiler:${Versions.dagger}"
     const val daggerGradlePlugin = "com.google.dagger:hilt-android-gradle-plugin:${Versions.dagger}"
 
     const val coreKtx = "androidx.core:core-ktx:${Versions.coreKtx}"
@@ -22,7 +22,8 @@ object Dependencies {
 
 object Plugins {
     const val androidApplication = "com.android.application"
-    const val androidLibrary = "com.android.library"
+    const val libraryKotlin = "library-kotlin"
+    const val libraryAndroid = "library-android"
     const val kotlinAndroid = "org.jetbrains.kotlin.android"
     const val kotlinKapt = "kotlin-kapt"
     const val dagger = "dagger.hilt.android.plugin"
