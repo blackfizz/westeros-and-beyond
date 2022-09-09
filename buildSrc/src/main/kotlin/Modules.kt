@@ -4,5 +4,6 @@ object Modules {
     const val repository = ":data:repository"
     const val model = ":data:model"
     const val domain = ":domain"
-    const val presentation = ":data:presentation"
+    const val presentation = ":presentation"
+    const val core = ":core"
 }

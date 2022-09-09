@@ -3,5 +3,6 @@ plugins {
 }
 
 dependencies {
-
+    implementation(project(Modules.model))
+    implementation(project(Modules.domain))
 }

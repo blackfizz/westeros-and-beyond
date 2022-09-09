@@ -1,5 +1,5 @@
 plugins {
-    id(Plugins.libraryAndroid)
+    id(Plugins.libraryKotlin)
 }
 
 dependencies {

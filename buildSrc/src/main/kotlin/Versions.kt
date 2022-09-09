@@ -1,5 +1,5 @@
 object Versions {
-    const val dagger = "2.38.1"
+    const val dagger = "2.43.1"
 
     const val compose = "1.2.0"
     const val composeActivity = "1.5.1"
