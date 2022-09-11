@@ -62,6 +62,13 @@ dependencies {
     implementation(project(Modules.local))
     implementation(project(Modules.presentation))
 
+    implementation(Dependencies.timber)
+
+    implementation(Dependencies.kotlinStdLib)
+    implementation(Dependencies.kotlinCoroutinesCore)
+    implementation(Dependencies.kotlinCoroutinesAndroid)
+
+
     implementation(Dependencies.daggerAndroid)
     kapt(Dependencies.daggerCompiler)
 
@@ -79,4 +86,5 @@ dependencies {
     testImplementation (Dependencies.junit)
     androidTestImplementation (Dependencies.junitExt)
     androidTestImplementation (Dependencies.espresso)
+    testImplementation(Dependencies.kotlinCoroutinesTest)
 }

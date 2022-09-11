@@ -4,6 +4,5 @@ plugins {
 
 dependencies {
     implementation(project(Modules.model))
-    implementation(project(Modules.remote))
-    implementation(project(Modules.local))
+    implementation(project(Modules.domain))
 }

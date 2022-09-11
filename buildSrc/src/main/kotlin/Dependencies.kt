@@ -1,10 +1,29 @@
 object Dependencies {
+    const val timber = "com.jakewharton.timber:timber:${Versions.timber}"
+
     const val daggerAndroid = "com.google.dagger:hilt-android:${Versions.dagger}"
     const val daggerCompiler = "com.google.dagger:hilt-android-compiler:${Versions.dagger}"
     const val daggerGradlePlugin = "com.google.dagger:hilt-android-gradle-plugin:${Versions.dagger}"
 
+    const val kotlinStdLib = "org.jetbrains.kotlin:kotlin-stdlib:${Versions.kotlin}"
+    const val kotlinCoroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutines}"
+    const val kotlinCoroutinesAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines}"
+    const val kotlinCoroutinesTest = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutines}"
+
     const val coreKtx = "androidx.core:core-ktx:${Versions.coreKtx}"
-    const val lifecycleKtx = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.lifecycleKtx}"
+
+    const val lifecycleKtx = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.lifecycle}"
+    const val lifecycleLiveData = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.lifecycle}"
+    const val lifecycleViewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycle}"
+    const val lifecycleViewModelCompose = "androidx.lifecycle:lifecycle-viewmodel-compose:${Versions.lifecycle}"
+
+    const val roomRuntime = "androidx.room:room-runtime:${Versions.room}"
+    const val roomKtx = "androidx.room:room-ktx:${Versions.room}"
+    const val roomCompiler = "androidx.room:room-compiler:${Versions.room}"
+
+    const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
+    const val retrofitMoshi = "com.squareup.retrofit2:converter-moshi:${Versions.retrofit}"
+    const val retrofitCoroutinesAdapter = "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:${Versions.retrofitCoroutinesAdapter}"
 
     const val composeUi = "androidx.compose.ui:ui:${Versions.compose}"
     const val composeToolingPreview = "androidx.compose.ui:ui-tooling-preview:${Versions.compose}"
@@ -16,15 +35,22 @@ object Dependencies {
 
     const val junit = "junit:junit:${Versions.junit}"
     const val junitRunner = "androidx.test.runner.AndroidJUnitRunner"
+    const val mockk = "io.mockk:mockk:${Versions.mockk}"
+    const val coreTest = "androidx.test:core:${Versions.coreTest}"
+    const val coreRules = "androidx.test:rules:${Versions.coreTest}"
+    const val coreTestKtx = "androidx.test:core-ktx:${Versions.coreTest}"
+    const val archCoreTesting = "androidx.arch.core:core-testing:${Versions.arch}"
+
     const val junitExt = "androidx.test.ext:junit:${Versions.junitExt}"
     const val espresso = "androidx.test.espresso:espresso-core:${Versions.espresso}"
 }
 
 object Plugins {
     const val androidApplication = "com.android.application"
+    const val androidLibrary = "com.android.library"
     const val libraryKotlin = "library-kotlin"
     const val libraryAndroid = "library-android"
-    const val kotlinAndroid = "org.jetbrains.kotlin.android"
+    const val kotlinAndroid = "kotlin-android"
     const val kotlinKapt = "kotlin-kapt"
     const val dagger = "dagger.hilt.android.plugin"
 }

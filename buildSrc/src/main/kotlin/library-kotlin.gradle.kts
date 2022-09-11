@@ -10,5 +10,12 @@ java {
 
 dependencies {
 
-    testImplementation (Dependencies.junit)
+    implementation(Dependencies.kotlinStdLib)
+    implementation(Dependencies.kotlinCoroutinesCore)
+
+    testImplementation(Dependencies.junit)
+    testImplementation(Dependencies.kotlinCoroutinesTest)
+    testImplementation(Dependencies.mockk)
+    testImplementation(Dependencies.coreRules)
+    testImplementation(Dependencies.archCoreTesting)
 }
