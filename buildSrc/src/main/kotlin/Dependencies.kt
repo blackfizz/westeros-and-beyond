@@ -15,7 +15,6 @@ object Dependencies {
     const val lifecycleKtx = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.lifecycle}"
     const val lifecycleLiveData = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.lifecycle}"
     const val lifecycleViewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycle}"
-    const val lifecycleViewModelCompose = "androidx.lifecycle:lifecycle-viewmodel-compose:${Versions.lifecycle}"
 
     const val roomRuntime = "androidx.room:room-runtime:${Versions.room}"
     const val roomKtx = "androidx.room:room-ktx:${Versions.room}"
@@ -32,6 +31,8 @@ object Dependencies {
     const val composeUiTestManifest = "androidx.compose.ui:ui-test-manifest:${Versions.compose}"
     const val composeActivity = "androidx.activity:activity-compose:${Versions.composeActivity}"
     const val composeMaterial = "androidx.compose.material3:material3:${Versions.composeMaterial}"
+    const val composeNavigation = "androidx.navigation:navigation-compose:${Versions.composeNavigation}"
+    const val composeHiltNavigation = "androidx.hilt:hilt-navigation-compose:${Versions.composeHiltNavigation}"
 
     const val junit = "junit:junit:${Versions.junit}"
     const val junitRunner = "androidx.test.runner.AndroidJUnitRunner"

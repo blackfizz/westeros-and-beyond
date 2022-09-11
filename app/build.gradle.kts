@@ -72,11 +72,13 @@ dependencies {
     implementation(Dependencies.daggerAndroid)
     kapt(Dependencies.daggerCompiler)
 
-    implementation (Dependencies.coreKtx)
-    implementation (Dependencies.lifecycleKtx)
+    implementation(Dependencies.coreKtx)
+    implementation(Dependencies.lifecycleKtx)
 
-    testImplementation (Dependencies.junit)
-    androidTestImplementation (Dependencies.junitExt)
-    androidTestImplementation (Dependencies.espresso)
+    implementation(Dependencies.composeNavigation)
+
+    testImplementation(Dependencies.junit)
+    androidTestImplementation(Dependencies.junitExt)
+    androidTestImplementation(Dependencies.espresso)
     testImplementation(Dependencies.kotlinCoroutinesTest)
 }

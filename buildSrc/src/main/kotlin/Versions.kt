@@ -10,6 +10,8 @@ object Versions {
     const val compose = "1.2.0"
     const val composeActivity = "1.5.1"
     const val composeMaterial = "1.0.0-beta02"
+    const val composeNavigation = "2.5.2"
+    const val composeHiltNavigation = "1.0.0"
 
     const val coreKtx = "1.9.0"
     const val lifecycle = "2.5.1"
