@@ -12,8 +12,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import dagger.hilt.android.AndroidEntryPoint
-import io.redandroid.westerosandbeyond.presentation.modules.HouseListViewModel
+import io.redandroid.westerosandbeyond.presentation.modules.house.list.HouseListViewModel
 import io.redandroid.westerosandbeyond.core_ui.theme.WesterosAndBeyondTheme
+
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 

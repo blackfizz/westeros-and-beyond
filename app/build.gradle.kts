@@ -45,9 +45,6 @@ android {
     composeOptions {
         kotlinCompilerExtensionVersion = Versions.compose
     }
-//    hilt {
-//        enableExperimentalClasspathAggregation = true
-//    }
     packagingOptions {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"

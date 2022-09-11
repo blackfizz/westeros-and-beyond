@@ -1,4 +1,4 @@
-package io.redandroid.westerosandbeyond.presentation.modules
+package io.redandroid.westerosandbeyond.presentation.modules.house.list
 
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
