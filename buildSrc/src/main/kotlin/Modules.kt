@@ -6,4 +6,5 @@ object Modules {
     const val domain = ":domain"
     const val presentation = ":presentation"
     const val core = ":core"
+    const val coreUi = ":core-ui"
 }

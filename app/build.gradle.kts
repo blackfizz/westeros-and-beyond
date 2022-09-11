@@ -45,6 +45,9 @@ android {
     composeOptions {
         kotlinCompilerExtensionVersion = Versions.compose
     }
+//    hilt {
+//        enableExperimentalClasspathAggregation = true
+//    }
     packagingOptions {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
@@ -55,6 +58,7 @@ android {
 dependencies {
 
     implementation(project(Modules.core))
+    implementation(project(Modules.coreUi))
     implementation(project(Modules.model))
     implementation(project(Modules.domain))
     implementation(project(Modules.repository))
@@ -73,14 +77,6 @@ dependencies {
 
     implementation (Dependencies.coreKtx)
     implementation (Dependencies.lifecycleKtx)
-
-    implementation (Dependencies.composeUi)
-    implementation (Dependencies.composeMaterial)
-    implementation (Dependencies.composeToolingPreview)
-    implementation (Dependencies.composeActivity)
-    androidTestImplementation (Dependencies.composeUiTestJunit)
-    debugImplementation (Dependencies.composeUiTooling)
-    debugImplementation (Dependencies.composeUiTestManifest)
 
     testImplementation (Dependencies.junit)
     androidTestImplementation (Dependencies.junitExt)

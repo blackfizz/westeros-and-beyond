@@ -1,4 +1,4 @@
-package io.redandroid.westerosandbeyond
+package io.redandroid.westerosandbeyond.ui
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -13,8 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import dagger.hilt.android.AndroidEntryPoint
 import io.redandroid.westerosandbeyond.presentation.modules.HouseListViewModel
-import io.redandroid.westerosandbeyond.ui.theme.WesterosAndBeyondTheme
-
+import io.redandroid.westerosandbeyond.core_ui.theme.WesterosAndBeyondTheme
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 

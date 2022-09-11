@@ -1,4 +1,4 @@
-package io.redandroid.westerosandbeyond.ui.theme
+package io.redandroid.westerosandbeyond.core_ui.theme
 
 import androidx.compose.ui.graphics.Color
 
