@@ -1,5 +1,4 @@
 object Config {
-
     const val applicationId = "io.redandroid.westerosandbeyond"
     const val compileSdk = 33
     const val minSdk = 23

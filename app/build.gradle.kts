@@ -68,7 +68,6 @@ dependencies {
     implementation(Dependencies.kotlinCoroutinesCore)
     implementation(Dependencies.kotlinCoroutinesAndroid)
 
-
     implementation(Dependencies.daggerAndroid)
     kapt(Dependencies.daggerCompiler)
 

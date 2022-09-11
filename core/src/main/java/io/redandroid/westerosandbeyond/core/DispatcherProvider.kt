@@ -2,6 +2,7 @@ package io.redandroid.westerosandbeyond.core
 
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
+import javax.inject.Inject
 
 interface DispatcherProvider {
     val main : CoroutineDispatcher get() = Dispatchers.Main
@@ -10,4 +11,4 @@ interface DispatcherProvider {
     val unconfined : CoroutineDispatcher get() = Dispatchers.Unconfined
 }
 
-class DefaultDispatcherProvider : DispatcherProvider
+class DefaultDispatcherProvider @Inject constructor() : DispatcherProvider
