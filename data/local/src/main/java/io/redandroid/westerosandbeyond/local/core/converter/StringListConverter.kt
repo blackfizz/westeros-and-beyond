@@ -1,4 +1,4 @@
-package io.redandroid.westerosandbeyond.local.modules.house.core.converter
+package io.redandroid.westerosandbeyond.local.core.converter
 
 import androidx.room.TypeConverter
 import kotlinx.serialization.json.Json

@@ -1,7 +1,7 @@
 package io.redandroid.westerosandbeyond.local.modules.house
 
 import androidx.room.withTransaction
-import io.redandroid.westerosandbeyond.local.modules.house.core.WesterosAndBeyondDatabase
+import io.redandroid.westerosandbeyond.local.core.WesterosAndBeyondDatabase
 import io.redandroid.westerosandbeyond.local.modules.house.model.asHouse
 import io.redandroid.westerosandbeyond.local.modules.house.model.asHouseDbList
 import io.redandroid.westerosandbeyond.local.modules.house.model.asHouseList
