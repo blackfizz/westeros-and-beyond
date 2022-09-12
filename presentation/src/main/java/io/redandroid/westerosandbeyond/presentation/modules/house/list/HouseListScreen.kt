@@ -13,6 +13,8 @@ fun HouseListScreen(
     vm: HouseListViewModel = hiltViewModel(),
     houseSelectedCallback: HouseSelectedCallback
 ) {
+    vm.loadData()
+
     Button(onClick = { houseSelectedCallback("1") }) {
         Text("Button")
     }

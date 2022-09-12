@@ -1,4 +1,4 @@
-package io.redandroid.westerosandbeyond.model
+package io.redandroid.westerosandbeyond.model.modules.house
 
 data class House (
     var internalId : Long, // Internal database Id

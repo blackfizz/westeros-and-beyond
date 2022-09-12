@@ -44,5 +44,8 @@ dependencies {
     implementation(Dependencies.daggerAndroid)
     kapt(Dependencies.daggerCompiler)
 
+    api(Dependencies.paging)
+    api(Dependencies.pagingKtx)
+
     testImplementation (Dependencies.junit)
 }

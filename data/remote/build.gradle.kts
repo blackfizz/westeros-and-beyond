@@ -9,4 +9,7 @@ dependencies {
     implementation(Dependencies.retrofit)
     implementation(Dependencies.retrofitCoroutinesAdapter)
     implementation(Dependencies.retrofitMoshi)
+
+    implementation(Dependencies.moshi)
+    kapt(Dependencies.moshiCodegen)
 }

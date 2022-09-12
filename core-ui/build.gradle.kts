@@ -19,6 +19,7 @@ dependencies {
     api(Dependencies.composeMaterial)
     api(Dependencies.composeToolingPreview)
     api(Dependencies.composeActivity)
+    api(Dependencies.pagingCompose)
     androidTestApi (Dependencies.composeUiTestJunit)
     debugApi (Dependencies.composeUiTooling)
     debugApi (Dependencies.composeUiTestManifest)

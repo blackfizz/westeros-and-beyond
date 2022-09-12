@@ -23,6 +23,8 @@ object Dependencies {
     const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
     const val retrofitMoshi = "com.squareup.retrofit2:converter-moshi:${Versions.retrofit}"
     const val retrofitCoroutinesAdapter = "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:${Versions.retrofitCoroutinesAdapter}"
+    const val moshi = "com.squareup.moshi:moshi-kotlin:${Versions.moshi}"
+    const val moshiCodegen = "com.squareup.moshi:moshi-kotlin-codegen:${Versions.moshi}"
 
     const val composeUi = "androidx.compose.ui:ui:${Versions.compose}"
     const val composeToolingPreview = "androidx.compose.ui:ui-tooling-preview:${Versions.compose}"
@@ -33,6 +35,10 @@ object Dependencies {
     const val composeMaterial = "androidx.compose.material3:material3:${Versions.composeMaterial}"
     const val composeNavigation = "androidx.navigation:navigation-compose:${Versions.composeNavigation}"
     const val composeHiltNavigation = "androidx.hilt:hilt-navigation-compose:${Versions.composeHiltNavigation}"
+
+    const val paging = "androidx.paging:paging-runtime:${Versions.paging}"
+    const val pagingKtx = "androidx.paging:paging-runtime-ktx:${Versions.paging}"
+    const val pagingCompose = "androidx.paging:paging-compose:${Versions.pagingCompose}"
 
     const val junit = "junit:junit:${Versions.junit}"
     const val junitRunner = "androidx.test.runner.AndroidJUnitRunner"

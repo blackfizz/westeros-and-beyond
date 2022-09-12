@@ -4,6 +4,7 @@ object Versions {
 
     const val coroutines = "1.6.4"
     const val room = "2.4.3"
+    const val moshi = "1.14.0"
     const val retrofit = "2.9.0"
     const val retrofitCoroutinesAdapter = "0.9.2"
 
@@ -12,6 +13,9 @@ object Versions {
     const val composeMaterial = "1.0.0-beta02"
     const val composeNavigation = "2.5.2"
     const val composeHiltNavigation = "1.0.0"
+
+    const val paging = "3.1.1"
+    const val pagingCompose = "1.0.0-alpha16"
 
     const val coreKtx = "1.9.0"
     const val lifecycle = "2.5.1"
