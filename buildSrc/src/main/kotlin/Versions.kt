@@ -8,7 +8,7 @@ object Versions {
     const val moshi = "1.14.0"
 
     const val room = "2.4.3"
-    const val roomPaging = "2.5.0-alpha03"
+    const val roomPaging = "2.4.3"
 
     const val retrofit = "2.9.0"
     const val retrofitCoroutinesAdapter = "0.9.2"

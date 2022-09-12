@@ -11,7 +11,7 @@ dependencies {
     implementation(Dependencies.roomRuntime)
     kapt(Dependencies.roomCompiler)
     implementation(Dependencies.roomKtx)
-//    implementation(Dependencies.roomPaging)
+    implementation(Dependencies.roomPaging)
 
     testImplementation(Dependencies.roomTesting)
 }

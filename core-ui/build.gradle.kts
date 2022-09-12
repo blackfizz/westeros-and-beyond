@@ -16,6 +16,7 @@ dependencies {
     implementation(project(Modules.core))
 
     api(Dependencies.composeUi)
+    api(Dependencies.composeRuntimeLiveData)
     api(Dependencies.composeMaterial)
     api(Dependencies.composeToolingPreview)
     api(Dependencies.composeActivity)

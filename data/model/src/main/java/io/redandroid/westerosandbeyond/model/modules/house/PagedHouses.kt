@@ -8,6 +8,6 @@ data class PagedHouses(
     val lastUrl: String
 ) {
     companion object {
-        const val pageSize = 10
+        const val pageSize = 50
     }
 }

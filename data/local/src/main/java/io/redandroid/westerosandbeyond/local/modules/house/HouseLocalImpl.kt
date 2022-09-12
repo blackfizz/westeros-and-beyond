@@ -1,5 +1,6 @@
 package io.redandroid.westerosandbeyond.local.modules.house
 
+import androidx.paging.PagingSource
 import androidx.room.withTransaction
 import io.redandroid.westerosandbeyond.local.core.WesterosAndBeyondDatabase
 import io.redandroid.westerosandbeyond.local.modules.house.model.asHouse
@@ -30,4 +31,8 @@ class HouseLocalImpl @Inject constructor(
     override suspend fun loadHouse(houseUrl: String): House? {
         return db.houseDao.loadHouse(houseUrl)?.asHouse()
     }
+
+//    override fun pagingSource(): PagingSource<Int, House> {
+//        return db.houseDao.pagingSource()
+//    }
 }

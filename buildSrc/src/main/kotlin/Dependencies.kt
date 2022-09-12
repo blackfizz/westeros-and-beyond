@@ -22,7 +22,7 @@ object Dependencies {
     const val roomKtx = "androidx.room:room-ktx:${Versions.room}"
     const val roomCompiler = "androidx.room:room-compiler:${Versions.room}"
     const val roomPaging = "androidx.room:room-paging:${Versions.roomPaging}"
-    const val roomTesting = "androidx.room:room-testing:${Versions.roomPaging}"
+    const val roomTesting = "androidx.room:room-testing:${Versions.room}"
 
     const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
     const val retrofitMoshi = "com.squareup.retrofit2:converter-moshi:${Versions.retrofit}"
@@ -31,6 +31,7 @@ object Dependencies {
     const val moshiCodegen = "com.squareup.moshi:moshi-kotlin-codegen:${Versions.moshi}"
 
     const val composeUi = "androidx.compose.ui:ui:${Versions.compose}"
+    const val composeRuntimeLiveData = "androidx.compose.runtime:runtime-livedata:${Versions.compose}"
     const val composeToolingPreview = "androidx.compose.ui:ui-tooling-preview:${Versions.compose}"
     const val composeUiTooling = "androidx.compose.ui:ui-tooling:${Versions.compose}"
     const val composeUiTestJunit = "androidx.compose.ui:ui-test-junit4:${Versions.compose}"
