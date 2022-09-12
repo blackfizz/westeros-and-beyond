@@ -13,15 +13,6 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 abstract class LocalModule {
 
-//    @Provides
-//    @Singleton
-//    fun provideRoomDatabase() : Retrofit {
-//        return Retrofit.Builder()
-//            .baseUrl(Endpoints.baseUrl)
-//            .addConverterFactory(MoshiConverterFactory.create())
-//            .build()
-//    }
-
     @Binds
     abstract fun bindHouseLocal(
         houseLocalImpl: HouseLocalImpl

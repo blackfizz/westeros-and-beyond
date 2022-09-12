@@ -1,8 +1,7 @@
 package io.redandroid.westerosandbeyond.model.modules.house
 
 data class House (
-    var internalId : Long, // Internal database Id
-    val url: String, // Url to house
+    val url: String, // Url to house and also functions as id
     val name: String,
     val region: String,
     val coatOfArms: String,

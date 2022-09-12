@@ -1,4 +1,6 @@
 object Dependencies {
+    const val kotlinSerialization = "org.jetbrains.kotlinx:kotlinx-serialization-json:${Versions.kotlinSerialization}"
+
     const val timber = "com.jakewharton.timber:timber:${Versions.timber}"
 
     const val daggerAndroid = "com.google.dagger:hilt-android:${Versions.dagger}"
@@ -19,6 +21,8 @@ object Dependencies {
     const val roomRuntime = "androidx.room:room-runtime:${Versions.room}"
     const val roomKtx = "androidx.room:room-ktx:${Versions.room}"
     const val roomCompiler = "androidx.room:room-compiler:${Versions.room}"
+    const val roomPaging = "androidx.room:room-paging:${Versions.roomPaging}"
+    const val roomTesting = "androidx.room:room-testing:${Versions.roomPaging}"
 
     const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
     const val retrofitMoshi = "com.squareup.retrofit2:converter-moshi:${Versions.retrofit}"

@@ -21,13 +21,13 @@ class HouseRepositoryImpl @Inject constructor(
 
         if (response is RemoteResult.Success) {
             val pagedHouses = response.data
-            val houses = pagedHouses.houses
 
-            if (houses.isNotEmpty()) {
-                local.saveHouses(houses)
+
+            if (pagedHouses.houses.isNotEmpty()) {
+                local.saveHouses(pagedHouses.houses)
             }
 
-            houses
+            local.loadHouses()
         } else {
 
             listOf()

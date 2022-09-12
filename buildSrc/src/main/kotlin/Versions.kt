@@ -1,10 +1,15 @@
 object Versions {
+    const val kotlinSerialization = "1.4.0"
+
     const val timber = "5.0.1"
     const val dagger = "2.43.1"
 
     const val coroutines = "1.6.4"
-    const val room = "2.4.3"
     const val moshi = "1.14.0"
+
+    const val room = "2.4.3"
+    const val roomPaging = "2.5.0-alpha03"
+
     const val retrofit = "2.9.0"
     const val retrofitCoroutinesAdapter = "0.9.2"
 

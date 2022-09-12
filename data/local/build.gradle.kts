@@ -6,7 +6,12 @@ dependencies {
     implementation(project(Modules.model))
     implementation(project(Modules.repository))
 
+    implementation(Dependencies.kotlinSerialization)
+
     implementation(Dependencies.roomRuntime)
-    implementation(Dependencies.roomKtx)
     kapt(Dependencies.roomCompiler)
+    implementation(Dependencies.roomKtx)
+//    implementation(Dependencies.roomPaging)
+
+    testImplementation(Dependencies.roomTesting)
 }

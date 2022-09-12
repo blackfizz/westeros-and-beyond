@@ -56,7 +56,6 @@ data class HouseDTO(
 )
 
 fun HouseDTO.asHouse() = House(
-    internalId = 0L,
     url = url,
     name = name,
     region = region,
