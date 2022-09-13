@@ -16,5 +16,13 @@ data class House (
     val diedOut: String,
     val ancestralWeapons: List<String>,
     val cadetBranches: List<String>,
-    val swornMembers: List<String> // Url to character
+    val swornMembers: List<String>, // Url to character
 )
+
+fun List<House>.createRemoteKeys(nextPage: Int): List<HouseRemoteKey> = map {
+    HouseRemoteKey(
+        houseUrl = it.url,
+        currentPage = nextPage - 1,
+        nextPage = nextPage
+    )
+}

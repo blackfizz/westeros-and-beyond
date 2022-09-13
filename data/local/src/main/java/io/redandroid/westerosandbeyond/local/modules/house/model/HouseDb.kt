@@ -7,7 +7,7 @@ import io.redandroid.westerosandbeyond.model.modules.house.House
 @Entity(tableName = "houses")
 data class HouseDb(
     @PrimaryKey(autoGenerate = false)
-    val url: String, // Url to house and also functions as id
+    val url: String = "", // Url to house and also functions as id
     val name: String = "",
     val region: String = "",
     val coatOfArms: String = "",
@@ -22,7 +22,8 @@ data class HouseDb(
     val diedOut: String = "",
     val ancestralWeapons: List<String> = listOf(),
     val cadetBranches: List<String> = listOf(),
-    val swornMembers: List<String> = listOf() // Url to character
+    val swornMembers: List<String> = listOf(), // Url to character
+    val pageNumber : Int = 0
 )
 
 fun HouseDb.asHouse() = House(
@@ -41,7 +42,7 @@ fun HouseDb.asHouse() = House(
     diedOut = diedOut,
     ancestralWeapons = ancestralWeapons,
     cadetBranches = cadetBranches,
-    swornMembers = swornMembers
+    swornMembers = swornMembers,
 )
 
 
@@ -61,7 +62,7 @@ fun House.asHouseDb() = HouseDb(
     diedOut = diedOut,
     ancestralWeapons = ancestralWeapons,
     cadetBranches = cadetBranches,
-    swornMembers = swornMembers
+    swornMembers = swornMembers,
 )
 
 fun List<HouseDb>.asHouseList() = map { it.asHouse() }

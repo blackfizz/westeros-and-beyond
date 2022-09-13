@@ -3,10 +3,9 @@ package io.redandroid.westerosandbeyond.local.modules.house
 import androidx.paging.PagingSource
 import androidx.room.withTransaction
 import io.redandroid.westerosandbeyond.local.core.WesterosAndBeyondDatabase
-import io.redandroid.westerosandbeyond.local.modules.house.model.asHouse
-import io.redandroid.westerosandbeyond.local.modules.house.model.asHouseDbList
-import io.redandroid.westerosandbeyond.local.modules.house.model.asHouseList
+import io.redandroid.westerosandbeyond.local.modules.house.model.*
 import io.redandroid.westerosandbeyond.model.modules.house.House
+import io.redandroid.westerosandbeyond.model.modules.house.HouseRemoteKey
 import io.redandroid.westerosandbeyond.repository.contracts.local.HouseLocal
 import javax.inject.Inject
 
@@ -15,24 +14,42 @@ class HouseLocalImpl @Inject constructor(
 ): HouseLocal {
 
     override suspend fun loadHouses(): List<House> {
-        val housesDb = db.houseDao.loadAll()
+        val housesDb = db.houseDao.loadAllHouses()
 
         return housesDb.asHouseList()
     }
 
-    override suspend fun saveHouses(houses: List<House>) {
+    override suspend fun insertHouses(houses: List<House>) {
         val housesDb = houses.asHouseDbList()
 
-        db.withTransaction {
-            db.houseDao.insertAll(housesDb)
-        }
+        db.houseDao.insertAll(housesDb)
     }
 
     override suspend fun loadHouse(houseUrl: String): House? {
-        return db.houseDao.loadHouse(houseUrl)?.asHouse()
+        return db.houseDao.loadHouseByUrl(houseUrl)?.asHouse()
     }
 
-//    override fun pagingSource(): PagingSource<Int, House> {
-//        return db.houseDao.pagingSource()
-//    }
+    override suspend fun getAmountOfHouses(): Int {
+        return db.houseDao.getAmountOfHouses()
+    }
+
+    override suspend fun deleteAll() {
+        db.withTransaction {
+            db.remoteKeysDao.deleteAll()
+            db.houseDao.clearAll()
+        }
+    }
+
+    override suspend fun insertRemoteKeys(remoteKeys: List<HouseRemoteKey>) {
+        val dbKeys = remoteKeys.map { it.asRemoteKeyDb() }
+        db.remoteKeysDao.insertAll(dbKeys)
+    }
+
+    override suspend fun loadRemoteKeyByUrl(hourseUrl: String): HouseRemoteKey? {
+        return db.remoteKeysDao.remoteKeyByUrl(hourseUrl)?.asRemoteKey()
+    }
+
+    override fun pagingSource(): PagingSource<Int, House> {
+        return HousePagingSource(db.houseDao, db.remoteKeysDao)
+    }
 }

@@ -5,7 +5,7 @@ import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import io.redandroid.westerosandbeyond.domain.contracts.HouseRepository
-import io.redandroid.westerosandbeyond.repository.HouseRepositoryImpl
+import io.redandroid.westerosandbeyond.repository.modules.house.HouseRepositoryImpl
 
 @Module
 @InstallIn(SingletonComponent::class)
