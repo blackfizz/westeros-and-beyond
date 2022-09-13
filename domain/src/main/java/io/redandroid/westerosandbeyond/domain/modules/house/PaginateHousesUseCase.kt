@@ -1,5 +1,6 @@
 package io.redandroid.westerosandbeyond.domain.modules.house
 
+import androidx.paging.ExperimentalPagingApi
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import io.redandroid.westerosandbeyond.domain.contracts.HouseRepository
@@ -11,17 +12,15 @@ class PaginateHousesUseCase @Inject constructor(
     private val repository: HouseRepository,
 ) {
 
-    suspend operator fun invoke():List<House> {
-        return repository.getHouses()
+    @OptIn(ExperimentalPagingApi::class)
+    operator fun invoke(): Pager<Int, House> {
+        return Pager(
+            config = PagingConfig(
+                pageSize = PagedHouses.pageSize
+            ),
+            remoteMediator = repository.getHouseRemoteMediator()
+        ) {
+            repository.getHousePagingSource()
+        }
     }
 }
-
-        /*
-        Pager<Int, House>  {
-        return Pager(
-            config = PagingConfig(PagedHouses.pageSize),
-            remoteMediator =  HouseRemoteMediator()
-        ) {
-
-        }
-         */

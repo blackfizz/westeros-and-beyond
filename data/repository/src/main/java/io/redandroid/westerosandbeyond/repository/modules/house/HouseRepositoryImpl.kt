@@ -1,5 +1,8 @@
-package io.redandroid.westerosandbeyond.repository
+package io.redandroid.westerosandbeyond.repository.modules.house
 
+import androidx.paging.ExperimentalPagingApi
+import androidx.paging.PagingSource
+import androidx.paging.RemoteMediator
 import io.redandroid.westerosandbeyond.core.DefaultDispatcherProvider
 import io.redandroid.westerosandbeyond.core.DispatcherProvider
 import io.redandroid.westerosandbeyond.domain.contracts.HouseRepository
@@ -24,7 +27,7 @@ class HouseRepositoryImpl @Inject constructor(
 
 
             if (pagedHouses.houses.isNotEmpty()) {
-                local.saveHouses(pagedHouses.houses)
+                local.insertHouses(pagedHouses.houses)
             }
 
             local.loadHouses()
@@ -37,4 +40,8 @@ class HouseRepositoryImpl @Inject constructor(
     override suspend fun getHouse(houseUrl: String): House? = withContext(dispatcher.io) {
         local.loadHouse(houseUrl)
     }
+
+    @OptIn(ExperimentalPagingApi::class)
+    override fun getHouseRemoteMediator(): RemoteMediator<Int, House> = HouseRemoteMediator(remote, local)
+    override fun getHousePagingSource(): PagingSource<Int, House> = local.pagingSource()
 }

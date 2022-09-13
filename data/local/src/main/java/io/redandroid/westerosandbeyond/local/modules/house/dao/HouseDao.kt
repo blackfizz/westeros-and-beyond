@@ -1,4 +1,4 @@
-package io.redandroid.westerosandbeyond.local.modules.house
+package io.redandroid.westerosandbeyond.local.modules.house.dao
 
 import androidx.paging.PagingSource
 import androidx.room.Dao
@@ -13,13 +13,16 @@ interface HouseDao {
     suspend fun insertAll(users: List<HouseDb>)
 
     @Query("SELECT * FROM houses")
-    suspend fun loadAll(): List<HouseDb>
+    suspend fun loadAllHouses(): List<HouseDb>
 
     @Query("SELECT * FROM houses WHERE url LIKE :url")
-    suspend fun loadHouse(url: String): HouseDb?
+    suspend fun loadHouseByUrl(url: String): HouseDb?
 
-    @Query("SELECT * FROM houses")
-    fun pagingSource(): PagingSource<Int, HouseDb>
+    @Query("SELECT * FROM houses WHERE url IN (:url) ORDER BY name")
+    suspend fun loadHousesByUrl(url: List<String>): List<HouseDb>
+
+    @Query("SELECT COUNT(url) FROM houses")
+    suspend fun getAmountOfHouses(): Int
 
     @Query("DELETE FROM houses")
     suspend fun clearAll()

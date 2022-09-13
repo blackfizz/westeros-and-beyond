@@ -1,11 +1,10 @@
 package io.redandroid.westerosandbeyond.repository
 
 import io.redandroid.westerosandbeyond.core.TestDispatcherProvider
+import io.redandroid.westerosandbeyond.repository.modules.house.HouseRepositoryImpl
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
 import org.junit.Test
-
-import org.junit.Assert.*
 
 @OptIn(ExperimentalCoroutinesApi::class)
 class HouseRepositoryTest {

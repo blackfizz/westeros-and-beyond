@@ -6,7 +6,6 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -17,7 +16,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.paging.PagingData
+import androidx.paging.compose.collectAsLazyPagingItems
+import androidx.paging.compose.items
 import io.redandroid.westerosandbeyond.model.modules.house.House
+import kotlinx.coroutines.flow.Flow
 
 private typealias HouseSelectedCallback = (houseUrl: String) -> Unit
 
@@ -26,18 +29,19 @@ fun HouseListScreen(
     vm: HouseListViewModel = hiltViewModel(),
     houseSelectedCallback: HouseSelectedCallback
 ) {
-    vm.loadData()
 
-    val houses : List<House> by vm.houses.observeAsState(listOf())
-
-    HouseList(houses = houses, houseSelectedCallback = houseSelectedCallback)
+    HouseList(houses = vm.houses, houseSelectedCallback = houseSelectedCallback)
 }
 
 @Composable
-fun HouseList(houses: List<House>, houseSelectedCallback: HouseSelectedCallback) {
+fun HouseList(houses: Flow<PagingData<House>>, houseSelectedCallback: HouseSelectedCallback) {
+    val pagingItems = houses.collectAsLazyPagingItems()
+
     LazyColumn {
-        items(houses) { house ->
-            HouseItem(house = house , houseSelectedCallback = houseSelectedCallback)
+        items(pagingItems) { house ->
+            house?.let {
+                HouseItem(house = house , houseSelectedCallback = houseSelectedCallback)
+            }
         }
     }
 }
@@ -67,7 +71,7 @@ fun HouseItem(house: House, houseSelectedCallback: HouseSelectedCallback) {
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
-    HouseList(houses =  listOf()) {
-
-    }
+//    HouseList(houses =  listOf()) {
+//
+//    }
 }
