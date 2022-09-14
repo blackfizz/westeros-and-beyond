@@ -11,6 +11,12 @@ interface HouseLocal {
     suspend fun getAmountOfHouses(): Int
     suspend fun deleteAll()
 
+    suspend fun insertPagedHouses(
+        houses: List<House>,
+        remoteKeys: List<HouseRemoteKey>,
+        shouldClear: Boolean
+    )
+
     suspend fun insertRemoteKeys(remoteKeys: List<HouseRemoteKey>)
     suspend fun loadRemoteKeyByUrl(hourseUrl: String): HouseRemoteKey?
 

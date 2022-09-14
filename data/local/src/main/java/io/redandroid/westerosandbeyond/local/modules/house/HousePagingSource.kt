@@ -35,12 +35,22 @@ class HousePagingSource(
         val houseUrls = remoteKeyDao.remoteKeysByCurrentPage(page).map { it.houseUrl }
         val data = houseDao.loadHousesByUrl(houseUrls).map { it.asHouse() }
 
-        Timber.d("Data: $data")
-        return LoadResult.Page(
+        if (page == 1 && data.isEmpty()) {
+            Timber.d("Data is empty")
+            return LoadResult.Error(Exception("Empty"))
+        }
+
+        val itemsBefore =  if (params is LoadParams.Refresh) 0 else if (page == 1) 0 else (page - 1) * params.loadSize
+
+        val result = LoadResult.Page(
             data = data,
-            prevKey = null,
-            nextKey = if (data.isEmpty()) null else page + 1
+            prevKey = if (page == 1) null else page - 1,
+            nextKey = if (data.isEmpty()) null else page + 1,
+            itemsBefore = itemsBefore,
+            itemsAfter = params.loadSize
         )
+//        Timber.d("LoadResult: $result")
+        return result
     }
 
 }

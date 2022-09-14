@@ -12,6 +12,7 @@ object Versions {
 
     const val retrofit = "2.9.0"
     const val retrofitCoroutinesAdapter = "0.9.2"
+    const val okHttpLogger = "4.10.0"
 
     const val compose = "1.2.0"
     const val composeActivity = "1.5.1"

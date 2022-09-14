@@ -19,10 +19,11 @@ data class House (
     val swornMembers: List<String>, // Url to character
 )
 
-fun List<House>.createRemoteKeys(nextPage: Int): List<HouseRemoteKey> = map {
+fun List<House>.createRemoteKeys(currentPage: Int, hasNext: Boolean): List<HouseRemoteKey> = map {
     HouseRemoteKey(
         houseUrl = it.url,
-        currentPage = nextPage - 1,
-        nextPage = nextPage
+        currentPage = currentPage,
+        nextPage = if (hasNext) currentPage + 1 else null,
+        previousPage = if (currentPage == 1) null else currentPage - 1
     )
 }

@@ -7,11 +7,14 @@ import io.redandroid.westerosandbeyond.local.modules.house.model.*
 import io.redandroid.westerosandbeyond.model.modules.house.House
 import io.redandroid.westerosandbeyond.model.modules.house.HouseRemoteKey
 import io.redandroid.westerosandbeyond.repository.contracts.local.HouseLocal
+import timber.log.Timber
 import javax.inject.Inject
 
 class HouseLocalImpl @Inject constructor(
     private val db: WesterosAndBeyondDatabase
 ): HouseLocal {
+
+    private var pagingSource : PagingSource<Int, House>? = null
 
     override suspend fun loadHouses(): List<House> {
         val housesDb = db.houseDao.loadAllHouses()
@@ -34,10 +37,27 @@ class HouseLocalImpl @Inject constructor(
     }
 
     override suspend fun deleteAll() {
+        Timber.d("Delete ALl DB")
         db.withTransaction {
-            db.remoteKeysDao.deleteAll()
-            db.houseDao.clearAll()
         }
+    }
+
+    override suspend fun insertPagedHouses(
+        houses: List<House>,
+        remoteKeys: List<HouseRemoteKey>,
+        shouldClear: Boolean
+    ) {
+        db.withTransaction {
+            if (shouldClear) {
+                db.remoteKeysDao.deleteAll()
+                db.houseDao.clearAll()
+            }
+
+            insertHouses(houses)
+            insertRemoteKeys(remoteKeys)
+        }
+
+        pagingSource?.invalidate()
     }
 
     override suspend fun insertRemoteKeys(remoteKeys: List<HouseRemoteKey>) {
@@ -50,6 +70,7 @@ class HouseLocalImpl @Inject constructor(
     }
 
     override fun pagingSource(): PagingSource<Int, House> {
-        return HousePagingSource(db.houseDao, db.remoteKeysDao)
+        pagingSource = HousePagingSource(db.houseDao, db.remoteKeysDao)
+        return pagingSource!!
     }
 }

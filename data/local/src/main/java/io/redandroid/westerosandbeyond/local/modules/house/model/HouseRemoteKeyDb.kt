@@ -9,17 +9,20 @@ data class HouseRemoteKeyDb(
     @PrimaryKey
     val houseUrl: String,
     val currentPage: Int,
-    val nextPage: Int
+    val nextPage: Int?,
+    val previousPage: Int?
 )
 
 fun HouseRemoteKeyDb.asRemoteKey() = HouseRemoteKey(
     houseUrl = houseUrl,
     currentPage = currentPage,
-    nextPage = nextPage
+    nextPage = nextPage,
+    previousPage = previousPage
 )
 
 fun HouseRemoteKey.asRemoteKeyDb() = HouseRemoteKeyDb(
     houseUrl = houseUrl,
     currentPage = currentPage,
-    nextPage = nextPage
+    nextPage = nextPage,
+    previousPage = previousPage
 )

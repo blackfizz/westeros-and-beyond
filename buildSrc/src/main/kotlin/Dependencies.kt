@@ -27,6 +27,7 @@ object Dependencies {
     const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
     const val retrofitMoshi = "com.squareup.retrofit2:converter-moshi:${Versions.retrofit}"
     const val retrofitCoroutinesAdapter = "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:${Versions.retrofitCoroutinesAdapter}"
+    const val okHttpLogger = "com.squareup.okhttp3:logging-interceptor:${Versions.okHttpLogger}"
     const val moshi = "com.squareup.moshi:moshi-kotlin:${Versions.moshi}"
     const val moshiCodegen = "com.squareup.moshi:moshi-kotlin-codegen:${Versions.moshi}"
 
