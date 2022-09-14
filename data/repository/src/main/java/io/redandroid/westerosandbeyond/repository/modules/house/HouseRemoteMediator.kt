@@ -33,8 +33,6 @@ class HouseRemoteMediator(
     }
 
     override suspend fun load(loadType: LoadType, state: PagingState<Int, House>): MediatorResult {
-
-
         val pageNumber = when (loadType) {
             LoadType.REFRESH -> {
                 val remoteKeys = getRemoteKeyClosestToCurrentPosition(state)
