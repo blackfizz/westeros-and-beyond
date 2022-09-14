@@ -77,6 +77,7 @@ dependencies {
 
     implementation(Dependencies.composeNavigation)
     implementation(Dependencies.composeHiltNavigation)
+    debugImplementation (Dependencies.composeUiTooling)
 
     testImplementation(Dependencies.junit)
     androidTestImplementation(Dependencies.junitExt)

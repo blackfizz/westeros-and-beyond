@@ -46,6 +46,8 @@ dependencies {
     implementation(Dependencies.daggerAndroid)
     kapt(Dependencies.daggerCompiler)
 
-    testImplementation (Dependencies.junit)
+    testImplementation(Dependencies.junit)
     testImplementation(Dependencies.kotlinCoroutinesTest)
+    testImplementation(Dependencies.mockk)
+    testImplementation(Dependencies.turbine)
 }

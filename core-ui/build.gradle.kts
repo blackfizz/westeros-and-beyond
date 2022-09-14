@@ -22,6 +22,7 @@ dependencies {
     api(Dependencies.composeActivity)
     api(Dependencies.pagingCompose)
     androidTestApi (Dependencies.composeUiTestJunit)
-    debugApi (Dependencies.composeUiTooling)
+
+    debugImplementation (Dependencies.composeUiTooling)
     debugApi (Dependencies.composeUiTestManifest)
 }

@@ -50,6 +50,7 @@ object Dependencies {
     const val junit = "junit:junit:${Versions.junit}"
     const val junitRunner = "androidx.test.runner.AndroidJUnitRunner"
     const val mockk = "io.mockk:mockk:${Versions.mockk}"
+    const val turbine = "app.cash.turbine:turbine:${Versions.turbine}"
     const val coreTest = "androidx.test:core:${Versions.coreTest}"
     const val coreRules = "androidx.test:rules:${Versions.coreTest}"
     const val coreTestKtx = "androidx.test:core-ktx:${Versions.coreTest}"

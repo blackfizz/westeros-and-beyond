@@ -37,6 +37,7 @@ object Versions {
     const val junitExt = "1.1.3"
     const val espresso = "3.4.0"
     const val mockk = "1.12.7"
+    const val turbine = "0.9.0"
     const val coreTest = "1.4.0"
 
     // ===========================================================

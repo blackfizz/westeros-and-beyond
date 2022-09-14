@@ -22,4 +22,6 @@ dependencies {
     implementation(Dependencies.lifecycleViewModel)
     implementation(Dependencies.lifecycleRuntimeCompose)
     implementation(Dependencies.composeHiltNavigation)
+
+    debugImplementation (Dependencies.composeUiTooling)
 }
