@@ -34,7 +34,6 @@ class HouseRemoteMediator(
 
     override suspend fun load(loadType: LoadType, state: PagingState<Int, House>): MediatorResult {
 
-        Timber.d("LoadType: $loadType")
 
         val pageNumber = when (loadType) {
             LoadType.REFRESH -> {
@@ -48,16 +47,13 @@ class HouseRemoteMediator(
 
                 val remoteKey = local.loadRemoteKeyByUrl(lastItem.url) ?: throw Exception("No remote key found")
 
-                Timber.d("Append remoteKey $remoteKey")
                 remoteKey.nextPage
             }
         } ?: return MediatorResult.Success(endOfPaginationReached = true)
 
-        Timber.d("Before Fetching. PageNumber: $pageNumber")
         val response = remote.fetchPagedHouses(pageNumber)
         val shouldClear = pageNumber == 1 && loadType == LoadType.REFRESH
 
-        Timber.d("After Fetching")
         if (response is RemoteResult.Success) {
             Timber.d("Fetch Success")
             val data = response.data

@@ -16,8 +16,7 @@ class PaginateHousesUseCase @Inject constructor(
     operator fun invoke(): Pager<Int, House> {
         return Pager(
             config = PagingConfig(
-                pageSize = PagedHouses.pageSize,
-                enablePlaceholders = true
+                pageSize = PagedHouses.pageSize
             ),
             remoteMediator = repository.getHouseRemoteMediator()
         ) {

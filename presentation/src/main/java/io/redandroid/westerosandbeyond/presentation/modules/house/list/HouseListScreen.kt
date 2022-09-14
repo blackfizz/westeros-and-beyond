@@ -64,9 +64,11 @@ fun HouseList(houses: Flow<PagingData<House>>, houseSelectedCallback: HouseSelec
                 }
                 pagingItems.loadState.append is LoadState.Loading -> {
                     item {
-                        LinearProgressIndicator(
-                            modifier = Modifier.padding(8.dp)
-                        )
+                        CenteredContent(modifier = Modifier.fillParentMaxWidth()) {
+                            LinearProgressIndicator(
+                                modifier = Modifier.padding(8.dp)
+                            )
+                        }
                     }
                 }
             }
@@ -78,7 +80,6 @@ fun HouseList(houses: Flow<PagingData<House>>, houseSelectedCallback: HouseSelec
 fun HouseItem(house: House, houseSelectedCallback: HouseSelectedCallback) {
     Box(
         modifier = Modifier
-            .clickable { houseSelectedCallback(house.url) }
             .fillMaxWidth()
             .padding(8.dp)
             .border(3.dp, MaterialTheme.colorScheme.onPrimary, RoundedCornerShape(6.dp))
@@ -88,6 +89,8 @@ fun HouseItem(house: House, houseSelectedCallback: HouseSelectedCallback) {
             shadowElevation = 4.dp,
             modifier = Modifier
                 .fillMaxWidth()
+                .clickable { houseSelectedCallback(house.url) }
+
         ) {
             Column(
                 modifier = Modifier.padding(8.dp)
