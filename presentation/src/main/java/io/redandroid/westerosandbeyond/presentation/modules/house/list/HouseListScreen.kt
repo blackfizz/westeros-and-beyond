@@ -81,11 +81,10 @@ fun HouseItem(house: House, houseSelectedCallback: HouseSelectedCallback) {
             .clickable { houseSelectedCallback(house.url) }
             .fillMaxWidth()
             .padding(8.dp)
-            .clip(RoundedCornerShape(6.dp))
-            .border(1.dp, MaterialTheme.colorScheme.secondary)
+            .border(3.dp, MaterialTheme.colorScheme.onPrimary, RoundedCornerShape(6.dp))
     ) {
         Surface(
-            color = MaterialTheme.colorScheme.tertiary,
+            color = MaterialTheme.colorScheme.primary,
             shadowElevation = 4.dp,
             modifier = Modifier
                 .fillMaxWidth()
@@ -96,7 +95,7 @@ fun HouseItem(house: House, houseSelectedCallback: HouseSelectedCallback) {
                 Text(
                     text = house.name,
                     style = MaterialTheme.typography.headlineSmall,
-                    color = MaterialTheme.colorScheme.onSecondary,
+                    color = MaterialTheme.colorScheme.onPrimary,
                     fontWeight = FontWeight.Bold
                 )
 
@@ -105,7 +104,7 @@ fun HouseItem(house: House, houseSelectedCallback: HouseSelectedCallback) {
                         text = house.region,
                         style = MaterialTheme.typography.labelMedium,
                         fontWeight = FontWeight.Light,
-                        color = MaterialTheme.colorScheme.onSecondary
+                        color = MaterialTheme.colorScheme.onPrimary
                     )
                 }
 
