@@ -76,6 +76,7 @@ dependencies {
     implementation(Dependencies.lifecycleKtx)
 
     implementation(Dependencies.composeNavigation)
+    implementation(Dependencies.composeHiltNavigation)
 
     testImplementation(Dependencies.junit)
     androidTestImplementation(Dependencies.junitExt)

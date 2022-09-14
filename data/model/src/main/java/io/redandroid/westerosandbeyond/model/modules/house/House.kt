@@ -27,3 +27,22 @@ fun List<House>.createRemoteKeys(currentPage: Int, hasNext: Boolean): List<House
         previousPage = if (currentPage == 1) null else currentPage - 1
     )
 }
+
+fun mockedHouse(): House = House(
+    url = "url",
+    name = "House of Paul",
+    region = "Kühnhausen",
+    coatOfArms = "Faultier",
+    words = "words",
+    titles = listOf("Bester Mann", "Hochwürden", ""),
+    seats = listOf("seats"),
+    currentLord = "Paul",
+    heir = "Auch Paul",
+    overlord = "Immernoch Paul",
+    founded = "Lange her",
+    founder = "Paul!",
+    diedOut = "Lebt für Immer!",
+    ancestralWeapons = listOf("Wuchtbrumme"),
+    cadetBranches = listOf("cadetBranches"),
+    swornMembers = listOf("Paul", "Anne", "Noah"),
+)

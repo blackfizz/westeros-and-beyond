@@ -11,6 +11,7 @@ import io.redandroid.westerosandbeyond.model.core.RemoteResult
 import io.redandroid.westerosandbeyond.repository.contracts.local.HouseLocal
 import io.redandroid.westerosandbeyond.repository.contracts.remote.HouseRemote
 import kotlinx.coroutines.withContext
+import timber.log.Timber
 import javax.inject.Inject
 
 class HouseRepositoryImpl @Inject constructor(
@@ -25,16 +26,12 @@ class HouseRepositoryImpl @Inject constructor(
         if (response is RemoteResult.Success) {
             val pagedHouses = response.data
 
-
             if (pagedHouses.houses.isNotEmpty()) {
                 local.insertHouses(pagedHouses.houses)
             }
-
-            local.loadHouses()
-        } else {
-
-            listOf()
         }
+
+        local.loadHouses()
     }
 
     override suspend fun getHouse(houseUrl: String): House? = withContext(dispatcher.io) {

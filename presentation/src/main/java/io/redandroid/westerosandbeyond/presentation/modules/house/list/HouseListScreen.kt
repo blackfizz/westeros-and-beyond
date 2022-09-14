@@ -64,6 +64,15 @@ fun HouseItem(house: House, houseSelectedCallback: HouseSelectedCallback) {
                 style = MaterialTheme.typography.headlineSmall,
                 color = MaterialTheme.colorScheme.onSurface
             )
+
+            if (house.region.isNotBlank()) {
+                Text(
+                    text = house.region,
+                    style = MaterialTheme.typography.labelMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+            }
+
         }
     }
 }

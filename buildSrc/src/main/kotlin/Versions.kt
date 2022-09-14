@@ -25,6 +25,7 @@ object Versions {
 
     const val coreKtx = "1.9.0"
     const val lifecycle = "2.5.1"
+    const val lifecycleCompose = "2.6.0-alpha01"
     const val arch = "2.1.0"
 
 

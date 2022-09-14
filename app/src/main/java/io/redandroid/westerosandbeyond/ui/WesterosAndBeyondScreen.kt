@@ -5,17 +5,19 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import io.redandroid.westerosandbeyond.core.encodeUrl
+import io.redandroid.westerosandbeyond.core.navigation.Navigation
 import io.redandroid.westerosandbeyond.core_ui.theme.WesterosAndBeyondTheme
 import io.redandroid.westerosandbeyond.presentation.modules.house.detail.HouseDetailScreen
+import io.redandroid.westerosandbeyond.presentation.modules.house.detail.HouseDetailViewModel
 import io.redandroid.westerosandbeyond.presentation.modules.house.list.HouseListScreen
-import java.net.URLDecoder
-import java.net.URLEncoder
 
 @Composable
 fun WesterosAndBeyondScreen() {
@@ -34,29 +36,27 @@ fun WesterosAndBeyondScreen() {
 fun WesterosAndBeyondNavHost(
     modifier: Modifier = Modifier,
     navController: NavHostController = rememberNavController(),
-    startDestination: String = "houses"
+    startDestination: String = Navigation.houseListPath
 ) {
     NavHost(
         navController = navController,
         startDestination = startDestination,
         modifier = modifier
     ) {
-        composable("houses") {
+        composable(Navigation.houseListPath) {
             HouseListScreen { houseUrl ->
-                val urlEncoded = URLEncoder.encode(houseUrl, "utf-8")
+                val urlEncoded = houseUrl.encodeUrl()
                 navController.navigate("houses/$urlEncoded")
             }
         }
 
         composable(
-            route = "houses/{houseUrl}",
+            route = Navigation.houseDetailPath,
             arguments = listOf(
-                navArgument("houseUrl") { type = NavType.StringType }
+                navArgument(Navigation.houseUrlParam) { type = NavType.StringType }
             )
         ) {
-            val houseUrlEncoded = it.arguments?.getString("houseUrl", "")
-            val houseUrl = URLDecoder.decode(houseUrlEncoded, "utf-8")
-            HouseDetailScreen(houseUrl)
+            HouseDetailScreen()
         }
     }
 }

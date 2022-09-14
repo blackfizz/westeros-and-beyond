@@ -20,5 +20,6 @@ dependencies {
     implementation(Dependencies.lifecycleKtx)
     implementation(Dependencies.lifecycleLiveData)
     implementation(Dependencies.lifecycleViewModel)
+    implementation(Dependencies.lifecycleRuntimeCompose)
     implementation(Dependencies.composeHiltNavigation)
 }
