@@ -28,8 +28,8 @@ fun List<House>.createRemoteKeys(currentPage: Int, hasNext: Boolean): List<House
     )
 }
 
-fun mockedHouse(): House = House(
-    url = "https://www.anapioficeandfire.co/api/houses/10",
+fun mockedHouse(id: Int = 10): House = House(
+    url = "https://www.anapioficeandfire.co/api/houses/$id",
     name = "House of Paul",
     region = "Kühnhausen",
     coatOfArms = "Faultier",

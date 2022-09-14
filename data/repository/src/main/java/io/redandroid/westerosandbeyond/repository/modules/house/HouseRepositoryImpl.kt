@@ -19,6 +19,9 @@ class HouseRepositoryImpl @Inject constructor(
     private val dispatcher: DispatcherProvider = DefaultDispatcherProvider()
 ): HouseRepository {
 
+    /**
+     * Currently juts fetches the first page of houses
+     */
     override suspend fun getHouses(): List<House> = withContext(dispatcher.io) {
         val response = remote.fetchPagedHouses(1)
 
