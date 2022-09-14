@@ -8,6 +8,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.ExperimentalLifecycleComposeApi
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import io.redandroid.westerosandbeyond.core_ui.composables.CenteredContent
 import io.redandroid.westerosandbeyond.model.modules.house.House
 import io.redandroid.westerosandbeyond.model.modules.house.mockedHouse
 import io.redandroid.westerosandbeyond.presentation.modules.house.detail.HouseDetailState.*
@@ -38,12 +39,16 @@ fun HouseDetailEmpty() {
 
 @Composable
 fun HouseDetailLoading() {
-    LinearProgressIndicator()
+    CenteredContent {
+        LinearProgressIndicator()
+    }
 }
 
 @Composable
 fun HouseDetailError() {
-    Text("Nix gefunden")
+    CenteredContent {
+        Text("House could not be found")
+    }
 }
 
 @Preview(showBackground = true)

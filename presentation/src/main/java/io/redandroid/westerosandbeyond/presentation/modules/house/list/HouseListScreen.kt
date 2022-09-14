@@ -1,11 +1,9 @@
 package io.redandroid.westerosandbeyond.presentation.modules.house.list
 
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -16,10 +14,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.paging.LoadState
 import androidx.paging.PagingData
+import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.collectAsLazyPagingItems
 import androidx.paging.compose.items
+import io.redandroid.westerosandbeyond.core_ui.composables.CenteredContent
 import io.redandroid.westerosandbeyond.model.modules.house.House
+import io.redandroid.westerosandbeyond.model.modules.house.mockedHouse
 import kotlinx.coroutines.flow.Flow
 
 private typealias HouseSelectedCallback = (houseUrl: String) -> Unit
@@ -27,7 +29,7 @@ private typealias HouseSelectedCallback = (houseUrl: String) -> Unit
 @Composable
 fun HouseListScreen(
     vm: HouseListViewModel = hiltViewModel(),
-    houseSelectedCallback: HouseSelectedCallback
+    houseSelectedCallback: HouseSelectedCallback,
 ) {
 
     HouseList(houses = vm.houses, houseSelectedCallback = houseSelectedCallback)
@@ -40,11 +42,28 @@ fun HouseList(houses: Flow<PagingData<House>>, houseSelectedCallback: HouseSelec
     LazyColumn {
         items(pagingItems) { house ->
             house?.let {
-                HouseItem(house = house , houseSelectedCallback = houseSelectedCallback)
+                HouseItem(house = house, houseSelectedCallback = houseSelectedCallback)
+            }
+        }
+
+        when {
+            pagingItems.loadState.refresh is LoadState.Loading -> {
+                item {
+                    CenteredContent(modifier = Modifier.fillParentMaxSize()) {
+                        LinearProgressIndicator()
+                    }
+                }
+            }
+            pagingItems.loadState.append is LoadState.Loading -> {
+                item { LinearProgressIndicator(
+                    modifier = Modifier.padding(8.dp)
+                ) }
             }
         }
     }
+
 }
+
 
 @Composable
 fun HouseItem(house: House, houseSelectedCallback: HouseSelectedCallback) {
@@ -80,7 +99,5 @@ fun HouseItem(house: House, houseSelectedCallback: HouseSelectedCallback) {
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
-//    HouseList(houses =  listOf()) {
-//
-//    }
+    HouseItem(house = mockedHouse()) {}
 }

@@ -4,8 +4,8 @@ import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import io.redandroid.westerosandbeyond.core.DefaultDispatcherProvider
-import io.redandroid.westerosandbeyond.core.DispatcherProvider
+import io.redandroid.westerosandbeyond.core.disptacher.DefaultDispatcherProvider
+import io.redandroid.westerosandbeyond.core.disptacher.DispatcherProvider
 
 @Module
 @InstallIn(SingletonComponent::class)

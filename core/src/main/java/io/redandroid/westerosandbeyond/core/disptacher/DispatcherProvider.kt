@@ -1,4 +1,4 @@
-package io.redandroid.westerosandbeyond.core
+package io.redandroid.westerosandbeyond.core.disptacher
 
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers

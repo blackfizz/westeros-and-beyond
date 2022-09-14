@@ -5,4 +5,8 @@ object Navigation {
 
     const val houseListPath = "houses"
     const val houseDetailPath = "$houseListPath/{$houseUrlParam}"
+
+    fun generateHouseDetailPath(houseUrl: String): String {
+        return "$houseListPath/$houseUrl"
+    }
 }

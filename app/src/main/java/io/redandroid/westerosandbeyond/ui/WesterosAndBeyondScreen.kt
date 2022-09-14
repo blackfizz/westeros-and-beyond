@@ -16,7 +16,6 @@ import io.redandroid.westerosandbeyond.core.encodeUrl
 import io.redandroid.westerosandbeyond.core.navigation.Navigation
 import io.redandroid.westerosandbeyond.core_ui.theme.WesterosAndBeyondTheme
 import io.redandroid.westerosandbeyond.presentation.modules.house.detail.HouseDetailScreen
-import io.redandroid.westerosandbeyond.presentation.modules.house.detail.HouseDetailViewModel
 import io.redandroid.westerosandbeyond.presentation.modules.house.list.HouseListScreen
 
 @Composable
@@ -46,7 +45,9 @@ fun WesterosAndBeyondNavHost(
         composable(Navigation.houseListPath) {
             HouseListScreen { houseUrl ->
                 val urlEncoded = houseUrl.encodeUrl()
-                navController.navigate("houses/$urlEncoded")
+                val detailPath = Navigation.generateHouseDetailPath(urlEncoded)
+
+                navController.navigate(detailPath)
             }
         }
 

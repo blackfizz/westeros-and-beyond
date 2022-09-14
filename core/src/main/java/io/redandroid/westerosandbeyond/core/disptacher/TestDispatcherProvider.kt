@@ -1,4 +1,4 @@
-package io.redandroid.westerosandbeyond.core
+package io.redandroid.westerosandbeyond.core.disptacher
 
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.StandardTestDispatcher

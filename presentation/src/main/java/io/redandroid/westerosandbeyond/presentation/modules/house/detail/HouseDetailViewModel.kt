@@ -3,17 +3,15 @@ package io.redandroid.westerosandbeyond.presentation.modules.house.detail
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import dagger.assisted.Assisted
 import dagger.hilt.android.lifecycle.HiltViewModel
-import io.redandroid.westerosandbeyond.core.DispatcherProvider
-import io.redandroid.westerosandbeyond.core.decodeUrl
+import io.redandroid.westerosandbeyond.core.disptacher.DispatcherProvider
 import io.redandroid.westerosandbeyond.core.navigation.Navigation
 import io.redandroid.westerosandbeyond.domain.contracts.HouseRepository
 import io.redandroid.westerosandbeyond.model.modules.house.House
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
-import timber.log.Timber
 import javax.inject.Inject
 
 @HiltViewModel
