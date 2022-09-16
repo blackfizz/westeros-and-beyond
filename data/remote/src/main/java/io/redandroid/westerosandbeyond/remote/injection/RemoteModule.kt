@@ -2,7 +2,6 @@ package io.redandroid.westerosandbeyond.remote.injection
 
 import dagger.Binds
 import dagger.Module
-import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import io.redandroid.westerosandbeyond.remote.modules.house.HouseRemoteImpl

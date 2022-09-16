@@ -14,9 +14,6 @@ interface HouseRemoteKeyDao {
     @Query("SELECT * FROM house_remote_keys WHERE houseUrl = :url")
     suspend fun remoteKeyByUrl(url: String): HouseRemoteKeyDb?
 
-    @Query("SELECT * FROM house_remote_keys WHERE currentPage = :currentPage")
-    suspend fun remoteKeysByCurrentPage(currentPage: Int): List<HouseRemoteKeyDb>
-
     @Query("DELETE FROM house_remote_keys")
     suspend fun deleteAll()
 }

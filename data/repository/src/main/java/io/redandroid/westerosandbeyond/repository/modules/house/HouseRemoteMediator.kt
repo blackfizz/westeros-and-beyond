@@ -7,6 +7,7 @@ import androidx.paging.RemoteMediator
 import io.redandroid.westerosandbeyond.model.core.RemoteResult
 import io.redandroid.westerosandbeyond.model.modules.house.House
 import io.redandroid.westerosandbeyond.model.modules.house.HouseRemoteKey
+import io.redandroid.westerosandbeyond.model.modules.house.PagedHouses
 import io.redandroid.westerosandbeyond.model.modules.house.createRemoteKeys
 import io.redandroid.westerosandbeyond.repository.contracts.local.HouseLocal
 import io.redandroid.westerosandbeyond.repository.contracts.remote.HouseRemote
@@ -25,14 +26,19 @@ class HouseRemoteMediator(
     }
 
     private suspend fun getRemoteKeyClosestToCurrentPosition(state: PagingState<Int, House>): HouseRemoteKey? {
+
         return state.anchorPosition?.let { position ->
-            state.closestItemToPosition(position)?.url?.let { url ->
+            val pageSize = PagedHouses.pageSize
+            val page = (position / pageSize) + 1
+
+            state.closestItemToPosition(page)?.url?.let { url ->
                 local.loadRemoteKeyByUrl(url)
             }
         }
     }
 
     override suspend fun load(loadType: LoadType, state: PagingState<Int, House>): MediatorResult {
+        Timber.d("$loadType")
         val pageNumber = when (loadType) {
             LoadType.REFRESH -> {
                 val remoteKeys = getRemoteKeyClosestToCurrentPosition(state)
@@ -41,7 +47,7 @@ class HouseRemoteMediator(
             LoadType.PREPEND -> return MediatorResult.Success(endOfPaginationReached = true)
             LoadType.APPEND -> {
                 val lastItem = state.lastItemOrNull()
-                    ?: return MediatorResult.Success(endOfPaginationReached = true)
+                    ?: return MediatorResult.Success(endOfPaginationReached = false)
 
                 val remoteKey = local.loadRemoteKeyByUrl(lastItem.url) ?: throw Exception("No remote key found")
 

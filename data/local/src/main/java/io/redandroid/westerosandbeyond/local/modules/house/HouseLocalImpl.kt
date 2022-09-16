@@ -70,7 +70,7 @@ class HouseLocalImpl @Inject constructor(
     }
 
     override fun pagingSource(): PagingSource<Int, House> {
-        pagingSource = HousePagingSource(db.houseDao, db.remoteKeysDao)
+        pagingSource = HousePagingSource(db.houseDao)
         return pagingSource!!
     }
 }

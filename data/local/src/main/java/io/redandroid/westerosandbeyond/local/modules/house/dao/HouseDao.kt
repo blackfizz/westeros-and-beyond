@@ -17,8 +17,8 @@ interface HouseDao {
     @Query("SELECT * FROM houses WHERE url LIKE :url")
     suspend fun loadHouseByUrl(url: String): HouseDb?
 
-    @Query("SELECT * FROM houses WHERE url IN (:url) ORDER BY name")
-    suspend fun loadHousesByUrl(url: List<String>): List<HouseDb>
+    @Query("SELECT * FROM houses LIMIT :limit OFFSET :offset")
+    suspend fun loadSlicedHouses(offset: Int, limit: Int): List<HouseDb>
 
     @Query("SELECT COUNT(url) FROM houses")
     suspend fun getAmountOfHouses(): Int

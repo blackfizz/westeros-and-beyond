@@ -10,12 +10,14 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.ExperimentalLifecycleComposeApi
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import io.redandroid.westerosandbeyond.core_ui.R
 import io.redandroid.westerosandbeyond.core_ui.composables.CenteredContent
 import io.redandroid.westerosandbeyond.core_ui.theme.WesterosAndBeyondTheme
 import io.redandroid.westerosandbeyond.model.modules.house.House
@@ -39,15 +41,15 @@ fun HouseDetailScreen(vm: HouseDetailViewModel = hiltViewModel()) {
 @Composable
 fun HouseDetailSuccess(house: House) {
     val valuePairs = listOf(
-        Pair("Region", house.region),
-        Pair("Coat of Arms", house.coatOfArms),
-        Pair("Words", house.words),
-        Pair("Titles", house.titles.joinToString("\n")),
-        Pair("Seats", house.seats.joinToString("\n")),
-        Pair("Founded", house.founded),
-        Pair("Died Out", house.diedOut),
-        Pair("Ancestral Weapons", house.ancestralWeapons.joinToString("\n")),
-        Pair("Cadet Branches", house.cadetBranches.joinToString("\n")),
+        Pair(stringResource(R.string.module_house_region_label), house.region),
+        Pair(stringResource(R.string.module_house_coat_of_arms_label), house.coatOfArms),
+        Pair(stringResource(R.string.module_house_words_label), house.words),
+        Pair(stringResource(R.string.module_house_titles_label), house.titles.joinToString("\n")),
+        Pair(stringResource(R.string.module_house_seats_label), house.seats.joinToString("\n")),
+        Pair(stringResource(R.string.module_house_founded_label), house.founded),
+        Pair(stringResource(R.string.module_house_died_out_label), house.diedOut),
+        Pair(stringResource(R.string.module_house_ancestral_weapons_label), house.ancestralWeapons.joinToString("\n")),
+        Pair(stringResource(R.string.module_house_cadet_branches_label), house.cadetBranches.joinToString("\n")),
     )
 
     Surface(
@@ -87,7 +89,7 @@ fun HouseDetailLoading() {
 @Composable
 fun HouseDetailError() {
     CenteredContent {
-        Text("House could not be found")
+        Text(stringResource(R.string.module_house_detail_error_state_label))
     }
 }
 

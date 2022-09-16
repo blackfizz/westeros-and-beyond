@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">WesterosAndBeyond</string>
+
+    <string name="module_house_region_label">Region</string>
+    <string name="module_house_coat_of_arms_label">Coat of Arms</string>
+    <string name="module_house_words_label">Words</string>
+    <string name="module_house_titles_label">Titles</string>
+    <string name="module_house_seats_label">Seats</string>
+    <string name="module_house_founded_label">Founded</string>
+    <string name="module_house_died_out_label">Died Out</string>
+    <string name="module_house_ancestral_weapons_label">Ancestral Weapons</string>
+    <string name="module_house_cadet_branches_label">Cadet Branches</string>
+
+    <string name="module_house_detail_error_state_label">House could not be found</string>
 </resources>

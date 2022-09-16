@@ -1,7 +1,5 @@
 # westeros-and-beyond
 ## TODO
-* Fix bug where House List jumps a bit forward, when new data has been loaded from the api
-* Move hardcoded localizations into resource folder
 * Add Unit Test for Remote/Local and HouseRemoteMediator
 * Add Jetpack Compose Tests
 * Add Refresh handling to invalidate cached data + use lastModified header

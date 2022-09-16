@@ -6,8 +6,8 @@ import androidx.paging.RemoteMediator
 import io.redandroid.westerosandbeyond.core.disptacher.DefaultDispatcherProvider
 import io.redandroid.westerosandbeyond.core.disptacher.DispatcherProvider
 import io.redandroid.westerosandbeyond.domain.contracts.HouseRepository
-import io.redandroid.westerosandbeyond.model.modules.house.House
 import io.redandroid.westerosandbeyond.model.core.RemoteResult
+import io.redandroid.westerosandbeyond.model.modules.house.House
 import io.redandroid.westerosandbeyond.repository.contracts.local.HouseLocal
 import io.redandroid.westerosandbeyond.repository.contracts.remote.HouseRemote
 import kotlinx.coroutines.withContext
