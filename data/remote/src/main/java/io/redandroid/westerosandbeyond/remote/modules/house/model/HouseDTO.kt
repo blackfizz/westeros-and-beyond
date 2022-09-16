@@ -75,3 +75,22 @@ fun HouseDTO.asHouse() = House(
 )
 
 fun List<HouseDTO>.asHouseList() = map { it.asHouse() }
+
+fun mockedHouseDTO(id: Int = 10): HouseDTO = HouseDTO(
+    url = "https://www.anapioficeandfire.co/api/houses/$id",
+    name = "House of Houses",
+    region = "Far North",
+    coatOfArms = "Sloth",
+    words = "",
+    titles = listOf("Sir"),
+    seats = listOf("On seats"),
+    currentLord = "",
+    heir = "",
+    overlord = "",
+    founded = "1400 BC",
+    founder = "",
+    diedOut = "Still Up and Running",
+    ancestralWeapons = listOf("Sword of the Swords"),
+    cadetBranches = listOf(),
+    swornMembers = listOf(),
+)

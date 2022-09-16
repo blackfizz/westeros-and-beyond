@@ -78,6 +78,8 @@ dependencies {
     implementation(Dependencies.composeNavigation)
     implementation(Dependencies.composeHiltNavigation)
     debugImplementation (Dependencies.composeUiTooling)
+    androidTestImplementation (Dependencies.composeUiTestJunit)
+    debugImplementation (Dependencies.composeUiTestManifest)
 
     testImplementation(Dependencies.junit)
     androidTestImplementation(Dependencies.junitExt)

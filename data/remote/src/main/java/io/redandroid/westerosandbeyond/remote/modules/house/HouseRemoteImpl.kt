@@ -11,6 +11,8 @@ class HouseRemoteImpl @Inject constructor(
     private val api: HouseApi
 ): HouseRemote {
 
+    private val converter = LinkHeaderConverter()
+
     override suspend fun fetchPagedHouses(pageNumber: Int): RemoteResult<PagedHouses> {
         val response = api.fetchHouses(pageNumber)
 
@@ -20,7 +22,7 @@ class HouseRemoteImpl @Inject constructor(
             val linkHeaders = response.headers()["link"]
 
             if (!linkHeaders.isNullOrBlank()) {
-                val links = LinkHeaderConverter().convert(linkHeaders)
+                val links = converter.convert(linkHeaders)
 
                 paged.nextUrl = links["next"] ?: ""
                 paged.previousUrl = links["prev"] ?: ""
