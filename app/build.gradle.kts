@@ -78,6 +78,7 @@ dependencies {
 
     implementation(Dependencies.composeNavigation)
     implementation(Dependencies.composeHiltNavigation)
+    implementation(Dependencies.lifecycleRuntimeCompose)
     debugImplementation (Dependencies.composeUiTooling)
     androidTestImplementation (Dependencies.composeUiTestJunit)
     debugImplementation (Dependencies.composeUiTestManifest)

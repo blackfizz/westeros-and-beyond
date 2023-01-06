@@ -22,6 +22,7 @@ import androidx.paging.compose.items
 import io.redandroid.westerosandbeyond.core_ui.composables.CenteredContent
 import io.redandroid.westerosandbeyond.model.modules.house.House
 import io.redandroid.westerosandbeyond.model.modules.house.mockedHouse
+import io.redandroid.westerosandbeyond.presentation.modules.house.MainViewModel
 import kotlinx.coroutines.flow.Flow
 
 private typealias HouseSelectedCallback = (houseUrl: String) -> Unit
@@ -29,9 +30,10 @@ private typealias HouseSelectedCallback = (houseUrl: String) -> Unit
 @Composable
 fun HouseListScreen(
     vm: HouseListViewModel = hiltViewModel(),
+    mainVm: MainViewModel = hiltViewModel(),
     houseSelectedCallback: HouseSelectedCallback,
 ) {
-
+    mainVm.title = "Houses"
     HouseList(houses = vm.houses, houseSelectedCallback = houseSelectedCallback)
 }
 

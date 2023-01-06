@@ -22,16 +22,25 @@ import io.redandroid.westerosandbeyond.core_ui.composables.CenteredContent
 import io.redandroid.westerosandbeyond.core_ui.theme.WesterosAndBeyondTheme
 import io.redandroid.westerosandbeyond.model.modules.house.House
 import io.redandroid.westerosandbeyond.model.modules.house.mockedHouse
+import io.redandroid.westerosandbeyond.presentation.modules.house.MainViewModel
 import io.redandroid.westerosandbeyond.presentation.modules.house.detail.HouseDetailState.*
 
 @OptIn(ExperimentalLifecycleComposeApi::class)
 @Composable
-fun HouseDetailScreen(vm: HouseDetailViewModel = hiltViewModel()) {
+fun HouseDetailScreen(
+    vm: HouseDetailViewModel = hiltViewModel(),
+    mainVm: MainViewModel = hiltViewModel()
+) {
     val state: HouseDetailState by vm.state.collectAsStateWithLifecycle(Empty)
 
     when (state) {
         // Why is smart cast not working?
-        is Success -> HouseDetailSuccess((state as Success).house)
+        is Success -> {
+            val house = (state as Success).house
+            mainVm.title = house.name
+
+            HouseDetailSuccess(house)
+        }
         is Loading -> HouseDetailLoading()
         is Empty -> HouseDetailEmpty()
         is Error -> HouseDetailError()
@@ -59,14 +68,6 @@ fun HouseDetailSuccess(house: House) {
         Column(
             modifier = Modifier.padding(16.dp)
         ) {
-            Text(
-                modifier = Modifier.padding(bottom = 8.dp),
-                text = house.name,
-                style = MaterialTheme.typography.headlineMedium,
-                fontWeight = FontWeight.Bold,
-                color = MaterialTheme.colorScheme.onPrimary
-            )
-
             for (pair in valuePairs) {
                 DetailEntry(pair)
             }
