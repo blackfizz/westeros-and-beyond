@@ -14,3 +14,6 @@ dependencies {
     implementation(Dependencies.moshi)
     kapt(Dependencies.moshiCodegen)
 }
+android {
+    namespace = "io.redandroid.westerosandbeyond.remote"
+}

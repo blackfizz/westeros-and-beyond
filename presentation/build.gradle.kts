@@ -10,6 +10,7 @@ android {
     composeOptions {
         kotlinCompilerExtensionVersion = Versions.compose
     }
+    namespace = "io.redandroid.westerosandbeyond.presentation"
 }
 
 dependencies {

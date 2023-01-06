@@ -9,4 +9,4 @@
 * Add search
 * Remember scroll position when going back from house detail to house list
 * Test Kotlin Serialization Controller for retrofit (https://github.com/JakeWharton/retrofit2-kotlinx-serialization-converter)
-* ... 
+* Add better compose navigation handling

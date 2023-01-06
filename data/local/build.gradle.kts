@@ -15,3 +15,6 @@ dependencies {
 
     testImplementation(Dependencies.roomTesting)
 }
+android {
+    namespace = "io.redandroid.westerosandbeyond.local"
+}

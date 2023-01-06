@@ -14,10 +14,10 @@ object Versions {
     const val retrofitCoroutinesAdapter = "0.9.2"
     const val okHttpLogger = "4.10.0"
 
-    const val compose = "1.2.0"
-    const val composeActivity = "1.5.1"
-    const val composeMaterial = "1.0.0-beta02"
-    const val composeNavigation = "2.5.2"
+    const val compose = "1.3.2"
+    const val composeActivity = "1.6.1"
+    const val composeMaterial = "1.0.1"
+    const val composeNavigation = "2.5.3"
     const val composeHiltNavigation = "1.0.0"
 
     const val paging = "3.1.1"
@@ -44,6 +44,6 @@ object Versions {
     // Plugin Versions
     // ===========================================================
 
-    const val android = "7.2.2"
-    const val kotlin = "1.7.0"
+    const val android = "7.3.1"
+    const val kotlin = "1.7.20"
 }
